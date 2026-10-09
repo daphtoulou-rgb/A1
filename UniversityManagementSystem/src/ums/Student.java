@@ -2,7 +2,7 @@
  * Group Members:
  * Ngozi Onyechere - 300485967
  * Daphnee Toulou - 300501881
- */
+ */ 
 package ums;
 
 import java.util.ArrayList;
@@ -114,6 +114,13 @@ public class Student extends Person {
         return sb.toString();
     }
 
+    /**
+     * Adds a grade for the student in the specified course.
+     *
+     * @param courseCode the course code
+     * @param grade the final grade
+     * @throws IllegalArgumentException if the student is not registered in the course or if the grade is out of bounds (not between 0 and 100)
+     */
     public void addGrade(String courseCode, int grade) {
        if (!isRegisteredIn(courseCode)) {
            throw new IllegalArgumentException(getFullName() + " is not registered in " + courseCode + ".");
@@ -125,6 +132,10 @@ public class Student extends Person {
        grades.put(courseCode, grade);
     }
 
+    /**
+     * Returns the average of the  grades.
+     * @returnb the average of the grades, or 0 if there are no grades
+     */
     public double getAverage(){
         if (grades.isEmpty()) {
             return 0;
@@ -136,6 +147,12 @@ public class Student extends Person {
         return sum / grades.size();
     }
 
+    /**
+     * Converts a numeric grade average to a letter grade.
+     *
+     * @param average the numeric grade average
+     * @return the corresponding letter grade
+     */
     public static String toLetterGrade(double average) {
         if (average >= 90) {
             return "A+";
@@ -162,6 +179,11 @@ public class Student extends Person {
         }
     }
 
+    /**
+     * Generates a formatted transcript containing all graded courses and the final average.
+     *
+     * @return the formatted transcript string
+     */
     private String getTranscript() {
         if (grades.isEmpty()) {
             return "    (no grades)\n";

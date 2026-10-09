@@ -2,10 +2,16 @@
  * Group Members:
  * Ngozi Onyechere - 300485967
  * Daphnee Toulou - 300501881
- */
+ */ 
+
 package ums;
+
+/**
+ * Represents a teaching assistant in the university management system.
+ */
 public class TeachingAssistant extends Instructor {
 
+    /** The maximum number of courses a TA can be assigned to at one time. */
     public static final int MAX_COURSES = 2;
 
     /**
